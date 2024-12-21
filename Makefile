@@ -22,6 +22,10 @@ run-prod: ## Run for prod env
 	@echo "Running app on production environment..."
 	flutter run --target lib/main.dart --flavor production
 
+run-web-prod: ## Run for stg env
+	@echo "Running app on staging environment..."
+	flutter run --target lib/main.dart -d chrome --web-renderer html
+
 
 build-apk-dev: ## Build flutter apk file (dev)
 	@echo "Building apk (dev) file..."
