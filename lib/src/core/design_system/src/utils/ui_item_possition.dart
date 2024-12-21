@@ -1,0 +1,4 @@
+enum UIItemPosition {
+	left,
+	right
+}
