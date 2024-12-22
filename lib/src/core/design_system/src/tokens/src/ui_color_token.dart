@@ -14,11 +14,11 @@ class UIColorToken {
 	});
 	
 	factory UIColorToken.light() => const UIColorToken(
-		bgColor: neu0,
+		bgColor: neu200,
 	);
 
 	factory UIColorToken.dark() => const UIColorToken(
-		bgColor: pri900,
+		bgColor: neu900,
 	);
 
 	// Primary
