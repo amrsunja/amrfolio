@@ -46,7 +46,7 @@ class AppRouter extends $AppRouter implements AutoRouteGuard {
 		// HOME PAGE -----------------------------------------------------------
 		CustomRoute(
 			path: RoutePaths.home,
-			page: HomeRoute.page,
+			page: MainRoute.page,
 			durationInMilliseconds: 1200,
 			transitionsBuilder: (context, anim, secondAnim, child) {
 				anim = CurvedAnimation(

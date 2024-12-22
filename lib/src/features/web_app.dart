@@ -1,3 +1,4 @@
+import 'package:amrfolio/src/core/design_system/app_ui.dart';
 import 'package:amrfolio/src/core/routing/provider/router_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -18,17 +19,20 @@ class _WebAppState extends ConsumerState<WebApp> {
 	Widget build(BuildContext context) {
 		final appRouter = ref.read(routerProvider);
 		final navigationObserver = ref.watch(navigationObserverProvider);
-    return MaterialApp.router(
-			title: 'Amrfolio',
-			debugShowCheckedModeBanner: false,
-			scaffoldMessengerKey: ref.read(scaffoldMessengerProvider),
-			routerConfig: appRouter.config(
-				//initialRoutes: [const SplashRoute()],
-				navigatorObservers: () => [navigationObserver],
-				//deepLinkBuilder: DeepLinksServices.navigateDeepLink
-			),
-			supportedLocales: L10n.all,
-			localizationsDelegates: AppLocale.localizationsDelegates,
+    return AppTheme(
+			data: AppThemeData.dark(),
+      child: MaterialApp.router(
+				title: 'Amrfolio',
+				debugShowCheckedModeBanner: false,
+				scaffoldMessengerKey: ref.read(scaffoldMessengerProvider),
+				routerConfig: appRouter.config(
+					//initialRoutes: [const SplashRoute()],
+					navigatorObservers: () => [navigationObserver],
+					//deepLinkBuilder: DeepLinksServices.navigateDeepLink
+				),
+				supportedLocales: L10n.all,
+				localizationsDelegates: AppLocale.localizationsDelegates,
+      ),
     );
 	}
 }
