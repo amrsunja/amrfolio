@@ -1,5 +1,10 @@
 {
 	"appLanguage": "Francais",
 
+	"home": "Home",
+	"projects": "Projets",
+	"about": "A propo",
+	"contact": "Contact",
+
   "l10nStopLineDonTouch": "☠☠☠☠☠☠☠☠☠☠☠☠☠ Don't touch this line ☠☠☠☠☠☠☠☠☠☠☠☠☠"
 }
