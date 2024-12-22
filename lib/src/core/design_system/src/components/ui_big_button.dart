@@ -55,7 +55,7 @@ class UIBigButton extends StatelessWidget {
 		this.iconPosition = UIItemPosition.left,
 		this.onTap
 	}) : bgColor = UIColorToken.neu0,
-			 fgColor = UIColorToken.pri100,
+			 fgColor = UIColorToken.neu0,
 			 contentColor = UIColorToken.pri800,
 			 border = const BorderSide(color: UIColorToken.pri700);
 
@@ -81,10 +81,10 @@ class UIBigButton extends StatelessWidget {
 				style: ButtonStyles.buttonStyle(
 					fullWidth: fullWidth,
 					border: border,
-					height: 48,
-					bgColor: bgColor,
+					height: 40,
+					bgColor: Colors.transparent,
 					fgColor: fgColor,
-					padding: const EdgeInsets.symmetric(horizontal: 20),
+					padding: const EdgeInsets.symmetric(horizontal: 15),
 					radius: BorderRadius.circular(8),
 				),
 		  	onPressed: disabled ? null : onTap,
@@ -105,7 +105,6 @@ class UIBigButton extends StatelessWidget {
 								flex: 3,
 								child: UIText(
 									label,
-									color: contentColor,
 									overFlow: TextOverflow.ellipsis,
 									textAlign: TextAlign.center,
 									style: GoogleFonts.kodchasan(),
