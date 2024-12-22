@@ -24,7 +24,7 @@ class NavMenuButton extends StatelessWidget {
 		  	  duration: Durations.medium2,
 		  		style: GoogleFonts.kodchasan(
 		  			fontSize: 16,
-		  			fontWeight: FontWeight.bold,
+		  			fontWeight: FontWeight.w600,
 		  	  	color: isSelected ? UIColorToken.pri800 : UIColorToken.neu400,
 		  		),
 		  	  child: UIText(
