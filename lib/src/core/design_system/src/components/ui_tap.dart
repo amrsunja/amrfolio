@@ -17,13 +17,14 @@ class UITap extends StatelessWidget {
 
 	@override
 	Widget build(BuildContext context) {
-		final color = splashEffect ? UIColorToken.neu200: Colors.transparent;
+		final color = splashEffect ? UIColorToken.neu200 : Colors.transparent;
 		return Material(
 			color: Colors.transparent,
 		  child: InkWell(
 		  	onTap: onTap,
 		  	highlightColor: color,
 		  	splashColor: color,
+		  				hoverColor: color,
 		  	child: child,
 		  ),
 		);
