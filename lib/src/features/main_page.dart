@@ -5,7 +5,6 @@ import 'package:amrfolio/src/features/ui/pages/contact_page.dart';
 import 'package:amrfolio/src/features/ui/pages/home_page.dart';
 import 'package:amrfolio/src/features/ui/pages/projects_page.dart';
 import 'package:amrfolio/src/features/ui/widgets/nav_menu/nav_menu_widget.dart';
-import 'package:animated_fab_button_menu/animated_fab_button_menu.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
@@ -27,7 +26,6 @@ class MainPage extends HookWidget {
 
 	@override
 	Widget build(BuildContext context) {
-		final locale = AppLocale.of(context)!;
 		final theme = AppTheme.of(context);
 		final selectedPageIndex = useState(0);
 		final cursorPosition = useState(Offset.zero);
