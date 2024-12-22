@@ -20,7 +20,7 @@ class _WebAppState extends ConsumerState<WebApp> {
 		final appRouter = ref.read(routerProvider);
 		final navigationObserver = ref.watch(navigationObserverProvider);
     return AppTheme(
-			data: AppThemeData.dark(),
+			data: AppThemeData.light(),
       child: MaterialApp.router(
 				title: 'Amrfolio',
 				debugShowCheckedModeBanner: false,

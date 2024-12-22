@@ -75,6 +75,7 @@ class UIBigButton extends StatelessWidget {
 
 	@override
 	Widget build(BuildContext context) {
+		final theme = AppTheme.of(context);
 		return Opacity(
 			opacity: disabled ? 0.5 : 1,
 		  child: ElevatedButton(
@@ -83,7 +84,7 @@ class UIBigButton extends StatelessWidget {
 					border: border,
 					height: 40,
 					bgColor: Colors.transparent,
-					fgColor: fgColor,
+					fgColor: contentColor.withOpacity(0.3),
 					padding: const EdgeInsets.symmetric(horizontal: 15),
 					radius: BorderRadius.circular(8),
 				),

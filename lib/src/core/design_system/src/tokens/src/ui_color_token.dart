@@ -2,12 +2,14 @@ part of app_ui;
 
 class UIColorToken {
 	final Color bgColor;
+	final Color cursorColor;
 	final Color focusedFieldBorder;
 	final Color unfocusedFieldBorder;
 	final Color errorFieldBorder;
 
 	const UIColorToken({
 		required this.bgColor,
+		required this.cursorColor,
 		this.focusedFieldBorder = pri700,
 		this.unfocusedFieldBorder = pri300,
 		this.errorFieldBorder = neg500,
@@ -15,10 +17,12 @@ class UIColorToken {
 	
 	factory UIColorToken.light() => const UIColorToken(
 		bgColor: neu200,
+		cursorColor: neu900,
 	);
 
 	factory UIColorToken.dark() => const UIColorToken(
 		bgColor: neu900,
+		cursorColor: neu0,
 	);
 
 	// Primary

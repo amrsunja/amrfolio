@@ -24,7 +24,7 @@ class UITap extends StatelessWidget {
 		  	onTap: onTap,
 		  	highlightColor: color,
 		  	splashColor: color,
-		  				hoverColor: color,
+		  	hoverColor: color,
 		  	child: child,
 		  ),
 		);
