@@ -1,11 +1,11 @@
 import 'package:amrfolio/src/core/design_system/app_ui.dart';
-import 'package:amrfolio/src/core/locale/l10n.dart';
 import 'package:amrfolio/src/features/ui/pages/about_page.dart';
 import 'package:amrfolio/src/features/ui/pages/contact_page.dart';
 import 'package:amrfolio/src/features/ui/pages/home_page.dart';
 import 'package:amrfolio/src/features/ui/pages/projects_page.dart';
 import 'package:amrfolio/src/features/ui/widgets/nav_menu/nav_menu_widget.dart';
 import 'package:auto_route/auto_route.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -54,12 +54,14 @@ class MainPage extends HookWidget {
 			);
 		}
 
+		final isWebMobile = kIsWeb && (defaultTargetPlatform == TargetPlatform.iOS || defaultTargetPlatform == TargetPlatform.android);
 		return UIResponsiveBuilder(
 		  builder: (context, constraints, screenType) {
 		    return UIScaffold(
 		    	floatingActionButton: screenType == UIDeviceScreenType.web ? null : UIFabMenu(
 						overlayColor: theme.colors.bgColor,
 						overlayOpacity: 0.9,
+						fabAlignment: Alignment.bottomRight,
 						closeMenuButton: Icon(
 							Icons.close_rounded,
 							color: theme.colors.txtColor,
@@ -82,6 +84,7 @@ class MainPage extends HookWidget {
 		    		cursor: SystemMouseCursors.none,
 		      	hitTestBehavior: HitTestBehavior.translucent, // Allow gestures to pass through
 		    		onHover:(event) {
+							if (isWebMobile) return;
 		    			cursorPosition.value = event.position;
 		    		},
 		        child: Stack(
@@ -119,34 +122,35 @@ class MainPage extends HookWidget {
 									secondChild: SizedBox.shrink(),
 								),
 		    
-		    				AnimatedPositioned(
-		    					left: cursorPosition.value.dx - 10,
-		    					top: cursorPosition.value.dy - 10,
-		    					duration: Durations.extralong2,
-		    					curve: Curves.fastLinearToSlowEaseIn,
-		    					child: IgnorePointer(
-		    						ignoring: true,
-		    					  child: Container(
-		    					  	padding: EdgeInsets.all(2),
-		    					  	decoration: BoxDecoration(
-		    					  		borderRadius: BorderRadius.all(Radius.circular(100)),
-		    					  		border: Border.all(
-		    					  			width: 1,
-		    					  			color: theme.colors.cursorColor,
-		    					  			style: BorderStyle.solid
-		    					  		)
-		    					  	),
-		    					    child: Container(
-		    					    	height: 10,
-		    					    	width: 10,
-		    					    	decoration: BoxDecoration(
-		    					    		borderRadius: BorderRadius.all(Radius.circular(100)),
-		    					  			color: theme.colors.cursorColor,
-		    					    	),
-		    					    ),
-		    					  ),
-		    					),
-		    				),
+								if (!isWebMobile)
+									AnimatedPositioned(
+										left: cursorPosition.value.dx - 10,
+										top: cursorPosition.value.dy - 10,
+										duration: Durations.extralong2,
+										curve: Curves.fastLinearToSlowEaseIn,
+										child: IgnorePointer(
+											ignoring: true,
+											child: Container(
+												padding: EdgeInsets.all(2),
+												decoration: BoxDecoration(
+													borderRadius: BorderRadius.all(Radius.circular(100)),
+													border: Border.all(
+														width: 1,
+														color: theme.colors.cursorColor,
+														style: BorderStyle.solid
+													)
+												),
+												child: Container(
+													height: 10,
+													width: 10,
+													decoration: BoxDecoration(
+														borderRadius: BorderRadius.all(Radius.circular(100)),
+														color: theme.colors.cursorColor,
+													),
+												),
+											),
+										),
+									),
 		    			],
 		        ),
 		      ),
