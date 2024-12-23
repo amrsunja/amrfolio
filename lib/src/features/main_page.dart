@@ -49,7 +49,7 @@ class MainPage extends HookWidget {
 		void onScrollToId(int id) {
 			scrollToId.animateTo(
 				id.toString(),
-				duration: Durations.short3,
+				duration: Durations.medium4,
 				curve: Curves.fastOutSlowIn
 			);
 		}
