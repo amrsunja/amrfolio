@@ -59,6 +59,13 @@ build-web-prod:
 	@echo "Building WEB app (prod)..."
 	flutter build web --target lib/main.dart --no-tree-shake-icons --web-renderer html
 
+deploy-web:
+	@echo "Deploying WEB app..."
+	flutter clean
+	flutter pub get
+	make build-web-prod
+	firebase deploy
+
 
 
 gen-code: ## Generate code
