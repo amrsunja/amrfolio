@@ -30,6 +30,7 @@ dependencies:
   google_fonts: ^4.0.4
 
   # Utils
+  flutter_animate: ^4.5.2
   scroll_to_id: ^1.5.1
   lottie: ^3.1.2
   multiple_result: ^5.1.0
