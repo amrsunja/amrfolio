@@ -15,6 +15,7 @@ export 'src/components/ui_animated_cross_fade_childs.dart';
 export 'src/components/ui_fade_animation.dart';
 export 'src/components/fab_menu/ui_fab_menu.dart';
 export 'src/components/image/ui_image.dart';
+export 'src/components/ui_dynamic_column_row.dart';
 export 'src/utils/ui_item_possition.dart';
 export 'src/utils/ui_button_styles.dart';
 export 'src/utils/ui_data_source_from.dart';
