@@ -24,9 +24,8 @@ final l10nProvider = Provider<AppLocale>((ref) {
 
 
 class L10n {
-	static Locale get rus => all[0];
-	static Locale get eng => all[1];
-	static Locale get ing => all[2];
+	static Locale get en => all[0];
+	static Locale get fr => all[1];
 
   static final all = [
     const Locale('en', 'US'),
@@ -35,6 +34,6 @@ class L10n {
   ];
 
 	static Locale get defaultLocale => all.contains(ui.PlatformDispatcher.instance.locale)
-		? ui.PlatformDispatcher.instance.locale : rus;
+		? ui.PlatformDispatcher.instance.locale : en;
 }
 
