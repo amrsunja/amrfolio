@@ -49,7 +49,7 @@ class MainPage extends HookWidget {
 		void onScrollToId(int id) {
 			scrollToId.animateTo(
 				id.toString(),
-				duration: Durations.medium4,
+				duration: Durations.medium3,
 				curve: Curves.fastOutSlowIn
 			);
 		}
@@ -81,7 +81,7 @@ class MainPage extends HookWidget {
 						)
 		    	),
 		      child: MouseRegion(
-		    		cursor: SystemMouseCursors.none,
+		    		//cursor: SystemMouseCursors.none,
 		      	hitTestBehavior: HitTestBehavior.translucent, // Allow gestures to pass through
 		    		onHover:(event) {
 							if (isWebMobile) return;
@@ -124,14 +124,15 @@ class MainPage extends HookWidget {
 		    
 								if (!isWebMobile)
 									AnimatedPositioned(
-										left: cursorPosition.value.dx - 10,
-										top: cursorPosition.value.dy - 10,
-										duration: Durations.extralong2,
+										left: cursorPosition.value.dx - 30,
+										top: cursorPosition.value.dy - 30,
+										duration: Durations.long4,
 										curve: Curves.fastLinearToSlowEaseIn,
 										child: IgnorePointer(
 											ignoring: true,
 											child: Container(
-												padding: EdgeInsets.all(2),
+												height: 60,
+												width: 60,
 												decoration: BoxDecoration(
 													borderRadius: BorderRadius.all(Radius.circular(100)),
 													border: Border.all(
@@ -139,14 +140,6 @@ class MainPage extends HookWidget {
 														color: theme.colors.cursorColor,
 														style: BorderStyle.solid
 													)
-												),
-												child: Container(
-													height: 10,
-													width: 10,
-													decoration: BoxDecoration(
-														borderRadius: BorderRadius.all(Radius.circular(100)),
-														color: theme.colors.cursorColor,
-													),
 												),
 											),
 										),
