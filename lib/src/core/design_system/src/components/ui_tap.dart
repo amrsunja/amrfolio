@@ -9,11 +9,13 @@ class UITap extends StatelessWidget {
 		this.onTap,
 		this.splashEffect = false,
 		this.child,
+		this.onHover
 	});
 
 	final VoidCallback? onTap;
 	final Widget? child;
 	final bool splashEffect;
+	final Function(bool)? onHover;
 
 	@override
 	Widget build(BuildContext context) {
@@ -21,6 +23,7 @@ class UITap extends StatelessWidget {
 		return Material(
 			color: Colors.transparent,
 		  child: InkWell(
+				onHover: onHover,
 		  	onTap: onTap,
 		  	highlightColor: color,
 		  	splashColor: color,
