@@ -68,8 +68,8 @@ class HomePage extends StatelessWidget {
 		                				fontSize: screen.width * (type == UIDeviceScreenType.web ? 0.04 : 0.06),
 		                			),
 		                		).animate(
-		                			effects: [FadeEffect(duration: 2.seconds)],
-		                			delay: 1.seconds
+		                			effects: [FadeEffect(duration: 1.seconds)],
+		                			delay: .7.seconds
 		                		),
 		                
 		                		Column(
@@ -116,7 +116,7 @@ class HomePage extends StatelessWidget {
 		                				SizedBox(height: 5),
 		                			],
 		                		).animate(
-		                				effects: [FadeEffect(duration: 2.seconds)],
+		                				effects: [FadeEffect(duration: 1.seconds)],
 		                				delay: .2.seconds
 		                		).slideX(curve: Curves.fastEaseInToSlowEaseOut)
 		                	],
