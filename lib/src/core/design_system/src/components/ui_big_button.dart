@@ -82,7 +82,7 @@ class UIBigButton extends StatelessWidget {
 					fullWidth: fullWidth,
 					border: border,
 					height: 40,
-					bgColor: Colors.transparent,
+					bgColor: bgColor,
 					fgColor: contentColor.withOpacity(0.1),
 					padding: const EdgeInsets.symmetric(horizontal: 15),
 					radius: BorderRadius.circular(8),
