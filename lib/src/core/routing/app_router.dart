@@ -62,6 +62,10 @@ class AppRouter extends $AppRouter implements AutoRouteGuard {
 			},
 			children: [
 			]
-		)
+		),
+				AutoRoute(
+					path: RoutePaths.contact,
+					page: ContactRoute.page,
+				),
 	];
 }

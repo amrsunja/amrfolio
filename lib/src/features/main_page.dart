@@ -1,15 +1,20 @@
 import 'package:amrfolio/src/core/design_system/app_ui.dart';
+import 'package:amrfolio/src/core/locale/l10n.dart';
 import 'package:amrfolio/src/features/ui/pages/about_page.dart';
 import 'package:amrfolio/src/features/ui/pages/contact_page.dart';
 import 'package:amrfolio/src/features/ui/pages/home_page.dart';
 import 'package:amrfolio/src/features/ui/pages/projects_page.dart';
+import 'package:amrfolio/src/features/ui/widgets/cursor/cursor_widget.dart';
 import 'package:amrfolio/src/features/ui/widgets/nav_menu/nav_menu_widget.dart';
 import 'package:auto_route/auto_route.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:scroll_to_id/scroll_to_id.dart';
+import 'package:liquid_swipe/liquid_swipe.dart';
+
 
 @RoutePage()
 class MainPage extends HookWidget {
@@ -24,128 +29,79 @@ class MainPage extends HookWidget {
 		);
 	}
 
+
 	@override
 	Widget build(BuildContext context) {
 		final theme = AppTheme.of(context);
-		final selectedPageIndex = useState(0);
-		final cursorPosition = useState(Offset.zero);
 		final scroll = useScrollController();
-		final scrollToId = useMemoized(() => ScrollToId(
-			scrollController: scroll
-		));
-
-
-		useEffect(() {
-			scrollToId.scrollController?.addListener(() {
-				final idPosition = int.parse(scrollToId.idPosition() ?? '0');
-
-				if (idPosition != selectedPageIndex.value)
-					selectedPageIndex.value = idPosition;
-			});
-
-			return null;
+		final liquidController = useMemoized(() {
+			return LiquidController();
 		});
+		final currentPage = useState(liquidController.currentPage);
 
-		void onScrollToId(int id) {
-			scrollToId.animateTo(
-				id.toString(),
-				duration: Durations.medium3,
-				curve: Curves.fastOutSlowIn
-			);
+		void _handlePointerSignal(PointerSignalEvent event) {
+			if (event is PointerScrollEvent) {
+				// Calculate the new target offset
+				final newOffset = (scroll.offset + event.scrollDelta.dy * 5).clamp(
+          scroll.position.minScrollExtent,
+          scroll.position.maxScrollExtent,
+        );
+
+				// Animate smoothly to the new offset
+				scroll.animateTo(
+					newOffset,
+					curve: Curves.fastEaseInToSlowEaseOut,
+					duration: Duration(seconds: 1)
+				);
+			}
 		}
 
 		final isWebMobile = kIsWeb && (defaultTargetPlatform == TargetPlatform.iOS || defaultTargetPlatform == TargetPlatform.android);
+		final locale = AppLocale.of(context)!;
 		return UIResponsiveBuilder(
 		  builder: (context, constraints, screenType) {
 		    return UIScaffold(
-		    	floatingActionButton: screenType == UIDeviceScreenType.web ? null : UIFabMenu(
-						overlayColor: theme.colors.bgColor,
-						overlayOpacity: 0.9,
-						fabAlignment: Alignment.bottomRight,
-						closeMenuButton: Icon(
-							Icons.close_rounded,
-							color: theme.colors.txtColor,
-						),
-						fabIcon: Icon(
-							Icons.menu_rounded,
-							color: theme.colors.txtColor,
-						),
-						fabBackgroundColor: theme.colors.bgColor,
-		    		child: NavMenuWidget(
-							verticalAlignment: true,
-							selectedItemIndex: selectedPageIndex.value,
-							onChange: (index) {
-								context.router.maybePop();
-								onScrollToId(index);
-							},
-						)
-		    	),
-		      child: MouseRegion(
-		    		//cursor: SystemMouseCursors.none,
-		      	hitTestBehavior: HitTestBehavior.translucent, // Allow gestures to pass through
-		    		onHover:(event) {
-							if (isWebMobile) return;
-		    			cursorPosition.value = event.position;
-		    		},
-		        child: Stack(
-		    			children: [
-		    				InteractiveScrollViewer(
-		    					scrollToId: scrollToId,
-		    					children: [
-		    						ScrollContent(
-		    							id: '0',
-		    							child: HomePage()
-		    						),
-		    						ScrollContent(
-		    							id: '1',
-		    							child: ProjectsPage()
-		    						),
-		    						ScrollContent(
-		    							id: '2',
-		    							child: AboutPage()
-		    						),
-		    						ScrollContent(
-		    							id: '3',
-		    							child: ContactPage()
-		    						),
-		    					],
-		    				),
-
-								UIAnimatedCrossFadeChilds(
-									state: screenType == UIDeviceScreenType.web ? CrossFadeState.showFirst : CrossFadeState.showSecond,
-									firstChild: NavMenuWidget(
-										selectedItemIndex: selectedPageIndex.value,
-										onChange: (index) {
-											onScrollToId(index);
-										},
-									),
-									secondChild: SizedBox.shrink(),
-								),
-		    
-								if (!isWebMobile)
-									AnimatedPositioned(
-										left: cursorPosition.value.dx - 30,
-										top: cursorPosition.value.dy - 30,
-										duration: Durations.long4,
-										curve: Curves.fastLinearToSlowEaseIn,
-										child: IgnorePointer(
-											ignoring: true,
-											child: Container(
-												height: 60,
-												width: 60,
-												decoration: BoxDecoration(
-													borderRadius: BorderRadius.all(Radius.circular(100)),
-													border: Border.all(
-														width: 1,
-														color: theme.colors.cursorColor,
-														style: BorderStyle.solid
-													)
-												),
+		      child: Stack(
+						children: [
+							LiquidSwipe(
+								enableLoop: false,
+								liquidController: liquidController,
+								positionSlideIcon: 0.9,
+								onPageChangeCallback: (page) {
+									currentPage.value = page;
+								},
+							  pages: [
+							    Listener(
+							      onPointerSignal: isWebMobile ? null : _handlePointerSignal,
+							      child: Container(
+											color: theme.colors.bgColor,
+							        child: ListView(
+							        	controller: scroll,
+							        	physics: isWebMobile ? null : NeverScrollableScrollPhysics(),
+												children: [
+													HomePage(),
+													ProjectsPage(),
+													AboutPage(),
+												],
 											),
-										),
-									),
-		    			],
-		        ),
+							      ),
+							    ),
+									ContactPage(),
+							  ],
+							),
+
+							NavMenuWidget(
+								pageTitle: currentPage.value == 0 ? locale.contact : locale.home,
+								onPageChange: () {
+									if (currentPage.value == 0)
+										liquidController.animateToPage(page: 1);
+									else liquidController.animateToPage(page: 0);
+								},
+							),
+			
+							if (!isWebMobile)
+								CursorWidget()
+						],
 		      ),
 		    );
 		  }

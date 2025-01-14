@@ -31,6 +31,7 @@ class _WebAppState extends ConsumerState<WebApp> {
 					//deepLinkBuilder: DeepLinksServices.navigateDeepLink
 				),
 				supportedLocales: L10n.all,
+				locale: L10n.fr,
 				localizationsDelegates: AppLocale.localizationsDelegates,
       ),
     );

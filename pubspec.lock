@@ -190,6 +190,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.0.6"
+  cupertino_icons:
+    dependency: "direct main"
+    description:
+      name: cupertino_icons
+      sha256: ba631d1c7f7bef6b729a622b7b752645a2d076dba9976925b8f25725a30e1ee6
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.8"
   dart_style:
     dependency: transitive
     description:
@@ -426,6 +434,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "5.1.1"
+  liquid_swipe:
+    dependency: "direct main"
+    description:
+      name: liquid_swipe
+      sha256: "04277568a4a5a5e8e1dfa8b222b4e497e294cf64e72113d936fcc54ef0e29149"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.1.0"
   logger:
     dependency: transitive
     description:
@@ -498,6 +514,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "5.1.0"
+  nested:
+    dependency: transitive
+    description:
+      name: nested
+      sha256: "03bac4c528c64c95c722ec99280375a6f2fc708eec17c7b3f07253b626cd2a20"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.0"
   package_config:
     dependency: transitive
     description:
@@ -506,6 +530,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.1"
+  parallax_effect:
+    dependency: "direct main"
+    description:
+      name: parallax_effect
+      sha256: c42b0976eb691eb0babaad57c65e05d8c99142b3779bb5c0fd78bcd86344fb7a
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.3"
   path:
     dependency: transitive
     description:
@@ -602,6 +634,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.5.1"
+  provider:
+    dependency: transitive
+    description:
+      name: provider
+      sha256: c8a055ee5ce3fd98d6fc872478b03823ffdb448699c6ebdbbc71d59b596fd48c
+      url: "https://pub.dev"
+    source: hosted
+    version: "6.1.2"
   pub_semver:
     dependency: transitive
     description:
@@ -634,14 +674,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.6.1"
-  scroll_to_id:
-    dependency: "direct main"
-    description:
-      name: scroll_to_id
-      sha256: "4c5b5b4e1146636c686133d5170b15660d1422d00655da50ac624ed82e06b0cc"
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.5.1"
   shelf:
     dependency: transitive
     description:

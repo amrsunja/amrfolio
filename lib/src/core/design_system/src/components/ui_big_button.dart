@@ -26,8 +26,8 @@ class UIBigButton extends StatelessWidget {
 		this.fullWidth = false,
 		this.iconPosition = UIItemPosition.left,
 		this.onTap
-	}) : bgColor = UIColorToken.pri800,
-			 fgColor = UIColorToken.pri900,
+	}) : bgColor = UIColorToken.pri900,
+			 fgColor = UIColorToken.pri800,
 			 contentColor = UIColorToken.neu0,
 			 border = BorderSide.none;
 
@@ -54,7 +54,7 @@ class UIBigButton extends StatelessWidget {
 		this.fullWidth = false,
 		this.iconPosition = UIItemPosition.left,
 		this.onTap
-	}) : bgColor = UIColorToken.neu0,
+	}) : bgColor = UIColorToken.neu200,
 			 fgColor = UIColorToken.neu0,
 			 contentColor = UIColorToken.pri800,
 			 border = const BorderSide(color: UIColorToken.pri700);
@@ -105,6 +105,7 @@ class UIBigButton extends StatelessWidget {
 								flex: 3,
 								child: UIText(
 									label,
+									color: contentColor,
 									overFlow: TextOverflow.ellipsis,
 									textAlign: TextAlign.center,
 									style: GoogleFonts.kodchasan(),

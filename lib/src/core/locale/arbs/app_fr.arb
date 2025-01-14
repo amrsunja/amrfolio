@@ -7,8 +7,16 @@
 	"contact": "Contact",
 
 	"home_page_title": "Full\nStack",
-	"home_page_subtitle": "Developer",
+	"home_page_subtitle": "Développeur",
 	"home_page_subsubtitle": "Web / Mobile",
+
+	"about_page_title": "Amir\nAzdoyev",
+	"about_page_bio": "👋 Salut, je suis Amir ! Ingénieur logiciel expérimenté et freelance, j’ai plus de 5 ans d’expérience dans la création d’applications web et mobiles percutantes. Spécialisé dans le développement full-stack, je suis expert dans la transformation d’idées complexes en solutions intuitives et conviviales, adaptées à vos besoins.\n\n Animé par la curiosité et un engagement envers l’amélioration continue, j’apporte à chaque projet une expertise technique et un esprit collaboratif. Mon approche met l’accent sur une communication claire, la fiabilité et une compréhension approfondie de vos objectifs, garantissant que chaque solution répond non seulement à vos attentes, mais les dépasse souvent. Travaillons ensemble pour transformer votre vision en un produit robuste et de haute qualité qui fait réellement la différence.",
+	"about_page_tools_title": "Outils que j'utilise:",
+
+	"contact_page_title": "Transformez votre vision en réalité",
+	"contact_page_subtitle": "Qu'il s'agisse de design, de développement ou de stratégie, je donne vie à votre vision avec intention et précision. Discutons de la manière dont nous pouvons porter votre projet au niveau supérieur",
+	"contact_page_meet_title": "Alors, on en parle ?",
 
   "l10nStopLineDonTouch": "☠☠☠☠☠☠☠☠☠☠☠☠☠ Don't touch this line ☠☠☠☠☠☠☠☠☠☠☠☠☠"
 }

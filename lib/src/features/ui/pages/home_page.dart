@@ -23,7 +23,9 @@ class HomePage extends StatelessWidget {
 		    		minHeight: screen.height
 		    	),
 		      child: Padding(
-		        padding: EdgeInsets.symmetric(horizontal: screen.width * .1),
+		        padding: EdgeInsets.symmetric(
+							horizontal: screen.width * (type == UIDeviceScreenType.web ? .1 : .05)
+						),
 		        child: Stack(
 		        	alignment: type == UIDeviceScreenType.web ? Alignment.center : Alignment.topCenter,
 		          children: [
@@ -80,7 +82,7 @@ class HomePage extends StatelessWidget {
 															),
 		                					decoration: BoxDecoration(
 		                						color: theme.colors.txtColor,
-		                						borderRadius: BorderRadius.circular(20)
+		                						borderRadius: BorderRadius.circular(screen.width * 0.015)
 		                					),
 		                					child: Row(
 		                						children: [

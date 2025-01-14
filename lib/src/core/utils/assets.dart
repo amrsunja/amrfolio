@@ -4,4 +4,5 @@ class Assets {
 	static const String sphetofor = 'assets/images/sphetofor.png';
 	static const String drop = 'assets/images/drop.png';
 	static const String drawnAvatar = 'assets/images/drawn_avatar.png';
+	static const String street = 'assets/images/streetparis.png';
 }

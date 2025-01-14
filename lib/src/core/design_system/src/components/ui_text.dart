@@ -33,7 +33,7 @@ class UIText extends StatelessWidget {
 			maxLines: maxLines,
 			style: style?.copyWith(
 				fontSize: fontSize,
-				color: color ?? defaultTextColor
+				color: color ?? style?.color ?? defaultTextColor
 			)
 		);
 	}

@@ -10,5 +10,13 @@
 	"home_page_subtitle": "Developer",
 	"home_page_subsubtitle": "Web / Mobile",
 
+	"about_page_title": "Amir\nAzdoyev",
+	"about_page_bio": "👋 Hi, I'm Amir! I’m a seasoned software engineer and freelancer with over 5 years of experience building impactful web and mobile applications. Specializing in full-stack development, I’m skilled at transforming complex ideas into seamless, user-friendly solutions tailored to meet your needs.\n\nDriven by curiosity and a commitment to growth, I bring both technical expertise and a collaborative spirit to every project. My approach prioritizes clear communication, reliability, and a deep understanding of your goals, ensuring that every solution not only meets but often exceeds expectations. Let’s work together to turn your vision into a robust, high-quality product that truly makes an impact.",
+	"about_page_tools_title": "Tools that I use:",
+
+	"contact_page_title": "Transform your vision into reality",
+	"contact_page_subtitle": "Whether it's design, development, or strategy, I bring your vision to life with purpose and precision. Let’s discuss how we can bring your project to the next level",
+	"contact_page_meet_title": "So, shall we talk ?",
+
   "l10nStopLineDonTouch": "☠☠☠☠☠☠☠☠☠☠☠☠☠ Don't touch this line ☠☠☠☠☠☠☠☠☠☠☠☠☠"
 }
